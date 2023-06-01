@@ -1,0 +1,429 @@
+﻿@model Product
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+        font: bold;
+    }
+
+    .name {
+        text-decoration: underline wavy purple;
+        font-family: 'Curlz MT'
+    }
+
+    .product-card {
+        position: relative;
+        max-width: 500px;
+        width: 200px;
+        border-radius: 25px;
+        padding: 20px 30px 30px;
+        background: #fff;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        z-index: 3;
+        overflow: hidden;
+        float: left;
+    }
+
+        .product-card .details .name {
+            font-size: 24px;
+            font-weight: 500;
+            color: #161616
+        }
+
+        .product-card .color-price .color-option {
+            display: flex;
+            align-items: center;
+        }
+
+    .color-price {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px
+    }
+
+        .color-price .color-option .color {
+            font-size: 18px;
+            font-weight: 500;
+            color: #333;
+            margin-right: 8px;
+        }
+
+        .color-price .price {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .color-price .price .price_num {
+                font-size: 25px;
+                font-weight: 600;
+                color: #707070;
+            }
+
+            .color-price .price .price_letter {
+                font-size: 10px;
+                font-weight: 600;
+                margin-top: -4px;
+                color: #707070;
+            }
+
+    .product-card .button {
+        position: relative;
+        height: 50px;
+        width: 100px;
+        border-radius: 25px;
+        margin-top: 30px;
+        overflow: hidden;
+    }
+
+        .product-card .button .button-layer {
+            position: absolute;
+            height: 100%;
+            width: 300%;
+            left: -100%;
+            background-image: linear-gradient(135deg,#9708CC,#43CBFF,#9708CC,#43CBFF);
+            transition: all 0.4s ease;
+            border-radius: 25px;
+        }
+
+        .product-card .button button {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            background: none;
+            outline: none;
+            border: none;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+
+    .product-card .main-images {
+        position: relative;
+        height: 210px;
+    }
+
+        .product-card .main-images img {
+            position: absolute;
+            height: 300px;
+            width: 300px;
+            object-fit: cover;
+            transform: rotate(18dg);
+            left: 12px;
+            top: -40px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+            .product-card .main-images img.active {
+                opacity: 1;
+            }
+</style>
+
+@if (Model.Name == "Flare Leg")
+{
+    <div class="product-card">
+        <div class="details">
+
+            <span class="name">
+                @Model.Name
+            </span>
+
+            <div>
+                <img src="~/Content/Images/flare.webp" class="img-thumbnail" />
+            </div>
+            <div class="price">
+                @Model.Price.ToString("c")
+            </div>
+        </div>
+
+        <form id=" @Model.ProductID" asp-action="AddToCart" asp-controller="Cart" method="post">
+            <input type="hidden" asp-for="ProductID" />
+            <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+
+            <div class="button">
+                <div class="button-layer">
+
+                </div>
+                <button type="submit">Add To Cart</button>
+
+            </div>
+
+        </form>
+
+
+    </div>
+
+}
+
+@if (Model.Name == "Floral Print")
+{
+    <div class="product-card">
+        <div class="details">
+
+            <span class="name">
+                @Model.Name
+            </span>
+
+            <div>
+                <img src="~/Content/Images/floraldress.webp" class="img-thumbnail" />
+            </div>
+            <div class="price">
+                @Model.Price.ToString("c")
+            </div>
+        </div>
+
+        <form id=" @Model.ProductID" asp-action="AddToCart" asp-controller="Cart" method="post">
+            <input type="hidden" asp-for="ProductID" />
+            <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+
+            <div class="button">
+                <div class="button-layer">
+
+                </div>
+                <button type="submit">Add To Cart</button>
+
+            </div>
+
+        </form>
+
+
+    </div>
+
+}
+@if (Model.Name == "Hair Bonnet")
+{
+    <div class="product-card">
+        <div class="details">
+
+            <span class="name">
+                @Model.Name
+            </span>
+
+            <div>
+                <img src="~/Content/Images/bonnet.webp" class="img-thumbnail" />
+            </div>
+            <div class="price">
+                @Model.Price.ToString("c")
+            </div>
+        </div>
+
+        <form id=" @Model.ProductID" asp-action="AddToCart" asp-controller="Cart" method="post">
+            <input type="hidden" asp-for="ProductID" />
+            <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+
+            <div class="button">
+                <div class="button-layer">
+
+                </div>
+                <button type="submit">Add To Cart</button>
+
+            </div>
+
+        </form>
+
+
+    </div>
+
+}
+
+@if (Model.Name == "High Bikini")
+{
+    <div class="product-card">
+        <div class="details">
+
+            <span class="name">
+                @Model.Name
+            </span>
+
+            <div>
+                <img src="~/Content/Images/bikini.webp" class="img-thumbnail" />
+            </div>
+            <div class="price">
+                @Model.Price.ToString("c")
+            </div>
+        </div>
+
+        <form id=" @Model.ProductID" asp-action="AddToCart" asp-controller="Cart" method="post">
+            <input type="hidden" asp-for="ProductID" />
+            <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+
+            <div class="button">
+                <div class="button-layer">
+
+                </div>
+                <button type="submit">Add To Cart</button>
+
+            </div>
+
+        </form>
+
+
+    </div>
+
+}
+
+@if (Model.Name == "Floral Cross Slides")
+{
+    <div class="product-card">
+        <div class="details">
+
+            <span class="name">
+                @Model.Name
+            </span>
+
+            <div>
+                <img src="~/Content/Images/floralslides.webp" class="img-thumbnail" />
+            </div>
+            <div class="price">
+                @Model.Price.ToString("c")
+            </div>
+        </div>
+
+        <form id=" @Model.ProductID" asp-action="AddToCart" asp-controller="Cart" method="post">
+            <input type="hidden" asp-for="ProductID" />
+            <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+
+            <div class="button">
+                <div class="button-layer">
+
+                </div>
+                <button type="submit">Add To Cart</button>
+
+            </div>
+
+        </form>
+
+
+    </div>
+
+}
+
+@if (Model.Name == "Pink Quartz Watch")
+{
+    <div class="product-card">
+        <div class="details">
+
+            <span class="name">
+                @Model.Name
+            </span>
+
+            <div>
+                <img src="~/Content/Images/watch.webp" class="img-thumbnail" />
+            </div>
+            <div class="price">
+                @Model.Price.ToString("c")
+            </div>
+        </div>
+
+        <form id=" @Model.ProductID" asp-action="AddToCart" asp-controller="Cart" method="post">
+            <input type="hidden" asp-for="ProductID" />
+            <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+
+            <div class="button">
+                <div class="button-layer">
+
+                </div>
+                <button type="submit">Add To Cart</button>
+
+            </div>
+
+        </form>
+
+
+    </div>
+
+}
+
+
+
+
+
+@if (Model.Name == "Bandama Cami Top")
+{
+    <div class="product-card">
+        <div class="details">
+
+            <span class="name">
+                @Model.Name
+            </span>
+
+            <div>
+                <img src="~/Content/Images/cami.webp" class="img-thumbnail" />
+            </div>
+            <div class="price">
+                @Model.Price.ToString("c")
+            </div>
+        </div>
+
+        <form id=" @Model.ProductID" asp-action="AddToCart" asp-controller="Cart" method="post">
+            <input type="hidden" asp-for="ProductID" />
+            <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+
+            <div class="button">
+                <div class="button-layer">
+
+                </div>
+                <button type="submit">Add To Cart</button>
+
+            </div>
+
+        </form>
+
+
+    </div>
+
+}
+
+@if (Model.Name == "Chain Flap Square Bag")
+{
+    <div class="product-card">
+        <div class="details">
+
+            <span class="name">
+                @Model.Name
+            </span>
+
+            <div>
+                <img src="~/Content/Images/chain.webp" class="img-thumbnail" />
+            </div>
+            <div class="price">
+                @Model.Price.ToString("c")
+            </div>
+        </div>
+
+        <form id=" @Model.ProductID" asp-action="AddToCart" asp-controller="Cart" method="post">
+            <input type="hidden" asp-for="ProductID" />
+            <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+
+            <div class="button">
+                <div class="button-layer">
+
+                </div>
+                <button type="submit">Add To Cart</button>
+
+            </div>
+
+        </form>
+
+
+    </div>
+
+}
+
+
+
+
+
+
+
+
+
+
+

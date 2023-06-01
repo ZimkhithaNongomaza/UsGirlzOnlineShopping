@@ -1,0 +1,14 @@
+﻿@{ 
+    Layout = "_AdminLayout";
+}
+@model IEnumerable<Employee>
+@foreach (var e in Model)
+{
+    <div>
+        <h4>@e.Name</h4>
+     <h4>@e.Surname</h4>
+        <h4>@e.Gender</h4>
+        <h4>@e.GradeLevel</h4>
+       
+    </div>
+}

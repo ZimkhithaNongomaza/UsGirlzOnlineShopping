@@ -1,0 +1,13 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+@model IEnumerable<Department>
+@foreach (var d in Model)
+{
+    <div>
+        <h4>@d.Name</h4>
+        <h4>@d.Description</h4>
+        
+
+    </div>
+}

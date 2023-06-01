@@ -1,0 +1,27 @@
+﻿@model IEnumerable<string>
+
+
+<a class="btn btn-block btn-secondary" style="background-image: linear-gradient(135deg,#9708CC,#43CBFF,#9708CC,#43CBFF); border-radius: 25px;"
+        border-radius: 25px;
+   asp-action="Index"
+   asp-controller="Home"
+   asp-route-category="">
+    Home
+</a>
+
+@foreach (string category in Model)
+{
+
+    
+        <a class="btn btn-block 
+          @(category==ViewBag.SelectedCategory ? "btn-danger": "btn-ifo")
+           btn-secondary " style="background-image: linear-gradient(135deg,#9708CC,#43CBFF,#9708CC,#43CBFF); border-radius: 25px;"
+           asp-action="List"
+           asp-controller="Product"
+           asp-route-category="@category"
+           asp-route-productPage="">
+            @category
+        </a>
+    
+
+}
